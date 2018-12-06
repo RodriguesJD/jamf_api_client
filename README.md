@@ -1,3 +1,3 @@
-#jamf-api
+# jamf-api
 
-####Basic functions used for interacting with python.
+#### Basic functions used for interacting with python.
