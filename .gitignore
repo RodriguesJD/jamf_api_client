@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+venv
+.idea
+src/secret
+.pytest_cache
+*__pycache__*
