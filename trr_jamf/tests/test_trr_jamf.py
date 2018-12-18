@@ -1,6 +1,4 @@
-from src import trr_jamf
-
-
+from trr_jamf import trr_jamf
 # https://developer.jamf.com/apis/jamf-pro-api/index
 
 

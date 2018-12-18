@@ -1,6 +1,6 @@
 from requests.auth import HTTPBasicAuth
 import requests
-from src.secret.key import username, key
+from trr_jamf.secret.key import username, key
 from pprint import pprint
 from datetime import datetime
 # https://developer.jamf.com/apis/jamf-pro-api/index
