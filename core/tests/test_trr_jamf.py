@@ -1,4 +1,4 @@
-from trr_jamf import trr_jamf
+from core import trr_jamf
 # https://developer.jamf.com/apis/jamf-pro-api/index
 
 
@@ -35,6 +35,12 @@ def test_computers():
     assert trr_jamf.computers().status_code == 200
     assert isinstance(trr_jamf.trr_jamf('/computers').json(), dict)
     assert str(type(trr_jamf.trr_jamf('/computers'))) == "<class 'requests.models.Response'>"
+
+
+def test_get_all_computers():
+    assert isinstance(trr_jamf.get_all_computers(), list)
+    for computer in trr_jamf.get_all_computers():
+        assert isinstance(computer, dict)
 
 
 def test_computer():
@@ -119,6 +125,4 @@ def test_list_all_devices_past():
     assert isinstance(trr_jamf.list_all_devices_past(5), list)
 
 
-def test_checked_in_exceeds_date():
-    #TODO need to figure out the logic so i dont have to hard code this one
-    pass
+

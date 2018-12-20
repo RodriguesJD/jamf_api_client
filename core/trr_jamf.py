@@ -1,19 +1,17 @@
 from requests.auth import HTTPBasicAuth
 import requests
-from trr_jamf.secret.key import username, key
 from pprint import pprint
 from datetime import datetime
 # https://developer.jamf.com/apis/jamf-pro-api/index
-
+from core.secret.key import key, username
 
 def trr_jamf(url: str) -> requests.models.Response:
     """therealreal prod"""
-    print("Jamf Prod")
     return requests.get(f'https://therealreal.jamfcloud.com/JSSResource{url}',
                         auth=HTTPBasicAuth(username, key), headers={'Accept': 'application/json'})
 
 
-# def trr_jamf(url: str) -> requests.models.Response:
+# def core(url: str) -> requests.models.Response:
 #     """therealreal dev"""
 #     print("Jamf Dev")
 #     return requests.get(f'https://therealrealdev.jamfcloud.com/JSSResource{url}',
@@ -39,6 +37,17 @@ def computergroup_by_name(computergroup_name: str) -> requests.models.Response:
 def computers() -> requests.models.Response:
     """'computers': [{'id': 225, 'name': 'NY65-M102770'}"""
     return trr_jamf('/computers')
+
+
+def get_all_computers():
+    # TODO make this async
+    all_computers = []
+    for comps in computers().json()['computers']:
+        comp_id = comps['id']
+        comp = computer_by_id(comp_id).json()
+        all_computers.append(comp)
+
+    return all_computers
 
 
 def computer_by_id(computer_id: str) -> requests.models.Response:
@@ -136,25 +145,6 @@ def list_all_devices_past(hasnt_checked_in_since: int) -> list:
     return list_past_checked_in_days
 
 
-def checked_in_exceeds_date(device: dict, hasnt_checked_in_since: int) -> bool:
-    past_date = False
-    last_contact_time = device['computer']['general']['last_contact_time']
-    if not last_contact_time:
-        past_date = False
-    elif last_contact_time == "":
-        past_date = False
-    else:
-        compare_dates = datetime.today() - datetime.strptime(last_contact_time.split(" ")[0], "%Y-%m-%d")
-        if 'day' not in str(compare_dates):
-            # less than 24 hours since check in
-            past_date = False
-        else:
-            days_since_last_checkin = int(str(compare_dates).split(" ")[0])
-            if days_since_last_checkin >= hasnt_checked_in_since:
-                past_date = True
-
-
-    return past_date
 
 
 

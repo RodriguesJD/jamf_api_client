@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 venv
 .idea
-trr_jamf/secret
+core/secret
 .pytest_cache
 *__pycache__*
 
