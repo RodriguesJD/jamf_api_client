@@ -145,7 +145,16 @@ def list_all_devices_past(hasnt_checked_in_since: int) -> list:
     return list_past_checked_in_days
 
 
+def list_env_os_variants():
+    """
+    List all versions of OSX/macOS that exist in our jamf environment.
+    """
+    all_os_vers = set()
+    for comp in get_all_computers():
+        os_version = comp['computer']['hardware']['os_version']
+        all_os_vers.add(os_version)
+
+    return all_os_vers
 
 
-
-
+list_env_os_variants()

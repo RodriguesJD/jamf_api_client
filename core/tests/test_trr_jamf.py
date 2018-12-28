@@ -125,4 +125,6 @@ def test_list_all_devices_past():
     assert isinstance(trr_jamf.list_all_devices_past(5), list)
 
 
+def test_list_env_os_variants():
+    assert isinstance(trr_jamf.list_env_os_variants(), set)
 
