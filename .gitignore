@@ -5,3 +5,5 @@ core/secret
 .pytest_cache
 *__pycache__*
 
+playground.py
+write_key.py
