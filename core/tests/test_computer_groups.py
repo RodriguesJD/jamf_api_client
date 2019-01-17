@@ -43,7 +43,7 @@ class TestComputerGroups:
         assert isinstance(self.group_id[0], str)
         assert len(self.group_id[0]) == 3
 
-    # TODO add delete test func
+    # TODO add delete test func 
 
 
 

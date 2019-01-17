@@ -17,10 +17,11 @@ def test_computergroups():
 
 
 def test_computergroup():
-    assert get_trr_jamf.get_trr_jamf('/computergroups/id/12').status_code == 200
-    assert get_trr_jamf.computergroup_by_id(12).status_code == 200
-    assert isinstance(get_trr_jamf.computergroup_by_id(12).json(), dict)
-    assert str(type(get_trr_jamf.computergroup_by_id(12))) == "<class 'requests.models.Response'>"
+    assert get_trr_jamf.get_trr_jamf('/computergroups/id/95').status_code == 200
+    assert get_trr_jamf.computergroup_by_id(95).status_code == 200
+    assert isinstance(get_trr_jamf.computergroup_by_id(95).json(), dict)
+    assert str(type(get_trr_jamf.computergroup_by_id(95
+                                                     ))) == "<class 'requests.models.Response'>"
 
 
 def test_computergroup_by_name():
