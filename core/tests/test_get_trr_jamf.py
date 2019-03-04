@@ -118,9 +118,16 @@ def test_list_all_policy_names():
 
 def test_list_all_smartgroup_names():
     assert isinstance(get_trr_jamf.list_all_smartgroup_names(), list)
-    for policy_name in get_trr_jamf.list_all_smartgroup_names():
-        assert isinstance(policy_name, str)
+    for smartgroup in get_trr_jamf.list_all_smartgroup_names():
+        assert isinstance(smartgroup, str)
+        # TODO test that its smart
 
+
+def test_list_all_staticgroup_names():
+    assert isinstance(get_trr_jamf.list_all_staticgroup_names, list)
+    for staticgroup in get_trr_jamf.list_all_staticgroup_names:
+        assert isinstance(staticgroup, str)
+        # TODO tet that its static
 
 def test_list_all_devices_past():
     assert isinstance(get_trr_jamf.list_all_devices_past(5), list)

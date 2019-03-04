@@ -109,9 +109,19 @@ def list_all_smartgroup_names():
     all_smartgroup_names = []
     smartgroups = computergroups().json()['computer_groups']
     for smartgroup in smartgroups:
-        all_smartgroup_names.append(smartgroup['name'])
+        if smartgroup['is_smart']:
+            all_smartgroup_names.append(smartgroup['name'])
 
     return all_smartgroup_names
+
+
+def list_all_staticgroup_names():
+    all_smartgroup_names = []
+    smartgroups = computergroups().json()['computer_groups']
+    for smartgroup in smartgroups:
+        if not smartgroup['is_smart']:
+            all_smartgroup_names.append(smartgroup['name'])
+            print(smartgroup)
 
 
 def list_all_devices_past(hasnt_checked_in_since: int) -> list:
