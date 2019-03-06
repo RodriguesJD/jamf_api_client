@@ -37,8 +37,9 @@ class TestComputerGroups:
 
     @pytest.mark.usefixtures('after_computer_group_fixture')
     def test_add_host_to_comp_group(self):
+        h_id = f"<computer><id>{self.host_id}</id></computer>"
         add_host = put_trr_jamf.add_host_to_comp_group(group_id=self.group_id[0],
-                                                       add_host_id=self.host_id,
+                                                       add_host_id=h_id,
                                                        group_name=self.test_group_name)
         assert add_host.status_code == 201
         assert isinstance(self.group_id[0], str)
