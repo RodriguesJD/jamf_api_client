@@ -104,6 +104,7 @@ def test_list_all_building_names():
     for building_name in get_trr_jamf.list_all_building_names():
         assert isinstance(building_name, str)
 
+
 def test_list_all_building_ids():
     assert isinstance(get_trr_jamf.list_all_building_ids(), list)
     for building_id in get_trr_jamf.list_all_building_ids():
@@ -124,10 +125,18 @@ def test_list_all_smartgroup_names():
 
 
 def test_list_all_staticgroup_names():
-    assert isinstance(get_trr_jamf.list_all_staticgroup_names, list)
-    for staticgroup in get_trr_jamf.list_all_staticgroup_names:
+    assert isinstance(get_trr_jamf.list_all_staticgroup_names(), list)
+    for staticgroup in get_trr_jamf.list_all_staticgroup_names():
         assert isinstance(staticgroup, str)
-        # TODO tet that its static
+        # TODO test that its static
+
+
+def test_list_all_group_names():
+    assert isinstance(get_trr_jamf.list_all_group_names(), list)
+    for group in get_trr_jamf.list_all_group_names():
+        assert isinstance(group, str)
+    
+
 
 def test_list_all_devices_past():
     assert isinstance(get_trr_jamf.list_all_devices_past(5), list)

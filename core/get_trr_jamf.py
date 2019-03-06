@@ -116,12 +116,22 @@ def list_all_smartgroup_names():
 
 
 def list_all_staticgroup_names():
-    all_smartgroup_names = []
+    all_staticgroup_names = []
     smartgroups = computergroups().json()['computer_groups']
     for smartgroup in smartgroups:
         if not smartgroup['is_smart']:
-            all_smartgroup_names.append(smartgroup['name'])
-            print(smartgroup)
+            all_staticgroup_names.append(smartgroup['name'])
+
+    return all_staticgroup_names
+
+
+def list_all_group_names():
+    all_group_names = []
+    groups = computergroups().json()['computer_groups']
+    for group in groups:
+        all_group_names.append(group['name'])
+
+    return all_group_names
 
 
 def list_all_devices_past(hasnt_checked_in_since: int) -> list:
@@ -159,3 +169,5 @@ def list_env_os_variants():
         all_os_vers.add(os_version)
 
     return all_os_vers
+
+
