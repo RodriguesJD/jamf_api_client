@@ -135,7 +135,6 @@ def test_list_all_group_names():
     assert isinstance(get_trr_jamf.list_all_group_names(), list)
     for group in get_trr_jamf.list_all_group_names():
         assert isinstance(group, str)
-    
 
 
 def test_list_all_devices_past():
