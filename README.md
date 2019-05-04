@@ -10,9 +10,8 @@ inside the secret dir. The key file will have two varables, "username" and "key"
 username var will be your jamf cloud username and the key var will be your password. Both
 will be strings.
 
-    mkdir secret
-    cd secret
-    touch key.py
-    echo "username = 'username'"
-    echo "key = 'password'"
+    mkdir core/secret
+    touch core/secret/key.py
+    echo "username = 'username'" > core/secret/key.py 
+    echo "key = 'password'" >> core/secret/key.py
     
