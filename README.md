@@ -1,6 +1,7 @@
 # jamf-api
 
-#### Basic functions used for interacting with python.
+### Purpose
+Interact with JAMF's api using python. 
 
 ### Setup
 
