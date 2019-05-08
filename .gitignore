@@ -4,7 +4,8 @@ venv
 core/secret
 .pytest_cache
 *__pycache__*
-
+*parsed_retouching.csv*
 playground.py
 write_key.py
+.DS_Store
 

@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from core import get_trr_jamf
 
 
