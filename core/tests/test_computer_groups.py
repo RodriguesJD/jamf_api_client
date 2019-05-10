@@ -3,7 +3,7 @@ import time
 from core import get_trr_jamf
 from core import post_trr_jamf
 from core import put_trr_jamf
-#  pytest core/tests/test_computer_groups.py
+#  pytest group_data_core/tests/test_computer_groups.py
 
 
 class TestComputerGroups:

@@ -78,6 +78,20 @@ def policies() -> requests.models.Response:
     return get_trr_jamf('/policies')
 
 
+def policy_by_id(policy_id: str) -> requests.models.Response:
+    policy_url = f'/policies/id/{policy_id}'
+    return get_trr_jamf(policy_url)
+
+
+def list_all_policy_names():
+    all_policie_names = []
+    buildings = policies().json()['policies']
+    for building in buildings:
+        all_policie_names.append(building['name'])
+
+    return all_policie_names
+
+
 def list_all_building_names():
     all_building_names = []
     building_s = buildings().json()['buildings']
@@ -94,15 +108,6 @@ def list_all_building_ids():
         all_building_names.append(building['id'])
 
     return all_building_names
-
-
-def list_all_policy_names():
-    all_policie_names = []
-    buildings = policies().json()['policies']
-    for building in buildings:
-        all_policie_names.append(building['name'])
-
-    return all_policie_names
 
 
 def list_all_smartgroup_names():
@@ -123,6 +128,15 @@ def list_all_staticgroup_names():
             all_staticgroup_names.append(smartgroup['name'])
 
     return all_staticgroup_names
+
+
+def osxconfigurationprofiles():
+    return get_trr_jamf('/osxconfigurationprofiles')
+
+
+def osxconfigurationprofiles_by_id(config_id: str) -> requests.models.Response:
+    config_url = f'/osxconfigurationprofiles/id/{config_id}'
+    return get_trr_jamf(config_url)
 
 
 def list_all_group_names():

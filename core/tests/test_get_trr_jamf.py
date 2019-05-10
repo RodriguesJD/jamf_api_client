@@ -99,6 +99,18 @@ def test_policies():
     assert str(type(get_trr_jamf.get_trr_jamf('/policies'))) == "<class 'requests.models.Response'>"
 
 
+def test_policy_by_id():
+    assert get_trr_jamf.policy_by_id(120).status_code == 200
+    assert isinstance(get_trr_jamf.get_trr_jamf('/policies/id/120').json(), dict)
+    assert str(type(get_trr_jamf.policy_by_id(120))) == "<class 'requests.models.Response'>"
+
+
+def test_list_all_policy_names():
+    assert isinstance(get_trr_jamf.list_all_policy_names(), list)
+    for policy_name in get_trr_jamf.list_all_policy_names():
+        assert isinstance(policy_name, str)
+
+
 def test_list_all_building_names():
     assert isinstance(get_trr_jamf.list_all_building_names(), list)
     for building_name in get_trr_jamf.list_all_building_names():
@@ -109,12 +121,6 @@ def test_list_all_building_ids():
     assert isinstance(get_trr_jamf.list_all_building_ids(), list)
     for building_id in get_trr_jamf.list_all_building_ids():
         assert isinstance(building_id, int)
-
-
-def test_list_all_policy_names():
-    assert isinstance(get_trr_jamf.list_all_policy_names(), list)
-    for policy_name in get_trr_jamf.list_all_policy_names():
-        assert isinstance(policy_name, str)
 
 
 def test_list_all_smartgroup_names():

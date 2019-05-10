@@ -39,6 +39,10 @@ class RetouchingAnalyzation:
         colorchecker_version = ''
         colormunki = ''
         colormunki_version = ''
+        i1Profiler = ''
+        i1Profiler_version = ''
+        i1ProfilerTray = ''
+        i1ProfilerTray_version = ''
         wacom = ''
         wacom_version = ''
 
@@ -60,6 +64,12 @@ class RetouchingAnalyzation:
             elif 'ColorMunki' in app_name:
                 colormunki = app_name
                 colormunki_version = app_version
+            elif "i1Profiler.app" in app_name:
+                i1Profiler = app_name
+                i1Profiler_version = app_version
+            elif 'i1ProfilerTray.app' in app_name:
+                i1ProfilerTray = app_name
+                i1Profiler_version = app_version
             elif 'Wacom Tablet Utility.app' in app_name:
                 wacom = app_name
                 wacom_version = app_version
@@ -71,6 +81,8 @@ class RetouchingAnalyzation:
                     photoshop, photoshop_version,
                     colorchecker, colorchecker_version,
                     colormunki, colormunki_version,
+                    i1Profiler, i1Profiler_version,
+                    i1ProfilerTray, i1ProfilerTray_version,
                     wacom, wacom_version]
 
         return app_list
@@ -109,17 +121,22 @@ class RetouchingAnalyzation:
             colorchecker_version = parsed_app_data[7]
             colormunki = parsed_app_data[8]
             colormunki_version = parsed_app_data[9]
-            wacom = parsed_app_data[10]
-            wacom_version = parsed_app_data[11]
+            i1Profiler = parsed_app_data[10]
+            i1Profiler_version = parsed_app_data[11]
+            i1ProfilerTray = parsed_app_data[12]
+            i1ProfilerTray_version = parsed_app_data[13]
+            wacom = parsed_app_data[14]
+            wacom_version = parsed_app_data[15]
 
             retouching_comp_data = [hostname, serial_number, model, os_version, bridge, bridge_version, lightroom,
                                     lightroom_version, photoshop, photoshop_version, colorchecker, colorchecker_version,
-                                    colormunki, colormunki_version, wacom, wacom_version]
+                                    colormunki, colormunki_version, i1Profiler, i1Profiler_version, i1ProfilerTray,
+                                    i1ProfilerTray_version, wacom, wacom_version]
             parsed_comp_list.append(retouching_comp_data)
 
         return parsed_comp_list
 
-    # TODO move computers_in_group func to core
+    # TODO move computers_in_group func to group_data_core
     @staticmethod
     def computers_in_group(computer_group: dict) -> list:
         """
@@ -182,10 +199,14 @@ def retouching_analyzation_to_csv():
             if line_count == 0:
                 header_list = ['hostname', 'serial_number', 'model', 'os_version', 'bridge', 'bridge_version',
                                'lightroom', 'lightroom_version', 'photoshop', 'photoshop_version', 'colorchecker',
-                               'colorchecker_version', 'colormunki', 'colormunki_version', 'wacom', 'wacom_version']
+                               'colorchecker_version', 'colormunki', 'colormunki_version', 'i1Profiler',
+                               'i1Profiler_version', 'i1ProfilerTray', 'i1ProfilerTray_version', 'wacom',
+                               'wacom_version']
                 retouching_writer.writerow(header_list)
+                retouching_writer.writerow(parsed_station)
                 line_count += 1
             else:
                 retouching_writer.writerow(parsed_station)
 
 
+retouching_analyzation_to_csv()
