@@ -7,9 +7,6 @@ authors = ["Jeremy Rodrigues <jeremy.rodrigues@therealreal.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 requests = "^2.20"
-xlsxwriter = "^1.1"
-pandas = "^0.23.4"
-xlrd = "^1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"

@@ -13,7 +13,7 @@ class TestRetouchingAnalyzation:
             applications = computer['computer']['software']['applications']
             parsed_app_data = self.retouch.parse_applications(applications)
             assert isinstance(parsed_app_data, list)
-            assert len(parsed_app_data) == 12
+            assert len(parsed_app_data) == 16
 
     def test_parse_computer_data(self):
         retouching_staticgroup = self.retouch.retouching_static_group().json()
