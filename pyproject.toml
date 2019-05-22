@@ -7,6 +7,7 @@ authors = ["Jeremy Rodrigues <jeremy.rodrigues@therealreal.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 requests = "^2.20"
+selenium = "^3.141"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"

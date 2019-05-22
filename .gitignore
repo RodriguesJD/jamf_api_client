@@ -8,4 +8,8 @@ core/secret
 playground.py
 write_key.py
 .DS_Store
+build_jamf_api_client
+jamf_analyzation/admin_rights
+jamf_analyzation/group_data
+jamf_analyzation/retouching
 
