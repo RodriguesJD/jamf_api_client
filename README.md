@@ -5,7 +5,7 @@ Interact with JAMF's api using python.
 
 ## Setup
 
-In order for this project to work you need an account in our jamf cloud instance. 
+In order for this project to work you need an account in a jamf cloud instance or server. 
 Once you have an account you need to create a "secret" dir, then add a file called "key.py"
 inside the secret dir. You can create the key.py yourself or use the "getting_started.py" script.
 
@@ -42,4 +42,4 @@ there.
 
 ## Authors
 
-* **Jeremy Rodrigues**
+* **RodriguesJD**
