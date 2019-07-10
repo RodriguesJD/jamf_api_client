@@ -34,11 +34,7 @@ python = "^3.7"
 
 requests = "^2.20"
 
-pytest = "^3.0"
-
-## Example
-You can find examples of how to use the api by navigating to the jamf_analyzation directory and viewing the projects 
-there.  
+pytest = "^3.0" 
 
 ## Authors
 
