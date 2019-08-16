@@ -1,7 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 venv
 .idea
-core/secret
 .pytest_cache
 *__pycache__*
 *parsed_retouching.csv*
@@ -15,4 +14,3 @@ jamf_analyzation/retouching
 core/aio_jamf.py
 jamf_analyzation/creative_ruby_versions.csv
 core/config.py
-# git remote add origin git@github.com:RodriguesJD/jamf-api-client.git
