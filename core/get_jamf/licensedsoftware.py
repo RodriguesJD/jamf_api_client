@@ -5,6 +5,10 @@ class Licensedsoftware(GetJamf):
 
     url = '/licensedsoftware'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+
     def by_id(self, id):
         self.url = f"{self.url}/id/{id}"
         return self.get_jamf()

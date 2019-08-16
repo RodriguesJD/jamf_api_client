@@ -5,6 +5,10 @@ class Patchpolicies(GetJamf):
 
     url = '/patchpolicies'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+
     def by_id(self, id):
         self.url = f"{self.url}/id/{id}"
         return self.get_jamf()
@@ -13,7 +17,7 @@ class Patchpolicies(GetJamf):
         self.url = f"{self.url}/id/{id}/subset/{subset}"
         return self.get_jamf()
 
-    def by_softwaretitleconfigid(self, softwaretitleconfigid):
+    def by_softwaretitleconfig_id(self, softwaretitleconfigid):
         self.url = f"{self.url}/softwaretitleconfig/id/{softwaretitleconfigid}"
         return self.get_jamf()
 

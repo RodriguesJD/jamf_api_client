@@ -5,3 +5,7 @@ class Smtpserver(GetJamf):
 
     url = '/smtpserver'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+

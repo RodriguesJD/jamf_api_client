@@ -5,6 +5,10 @@ class Ldapservers(GetJamf):
 
     url = '/ldapservers'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+
     def by_id(self, id):
         self.url = f"{self.url}/id/{id}"
         return self.get_jamf()
@@ -21,7 +25,7 @@ class Ldapservers(GetJamf):
         self.url = f"{self.url}/id/{id}/group/{group}"
         return self.get_jamf()
 
-    def by_id_group_user(self, id, group, user):
+    def by_(self, id, group, user):
         self.url = f"{self.url}/id/{id}/group/{group}/user/{user}"
         return self.get_jamf()
 

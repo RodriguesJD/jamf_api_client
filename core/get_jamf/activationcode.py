@@ -5,3 +5,7 @@ class Activationcode(GetJamf):
 
     url = '/activationcode'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+

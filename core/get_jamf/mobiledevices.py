@@ -5,6 +5,10 @@ class Mobiledevices(GetJamf):
 
     url = '/mobiledevices'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+
     def by_match(self, match):
         self.url = f"{self.url}/match/{match}"
         return self.get_jamf()

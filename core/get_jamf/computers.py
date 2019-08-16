@@ -5,7 +5,11 @@ class Computers(GetJamf):
 
     url = '/computers'
 
-    def by_basic(self):
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+
+    def by_subset(self, basic):
         self.url = f"{self.url}/subset/basic"
         return self.get_jamf()
 
@@ -13,7 +17,7 @@ class Computers(GetJamf):
         self.url = f"{self.url}/match/{match}"
         return self.get_jamf()
 
-    def by_matchname(self, matchname):
+    def by_match_name(self, matchname):
         self.url = f"{self.url}/match/name/{matchname}"
         return self.get_jamf()
 

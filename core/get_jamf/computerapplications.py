@@ -3,8 +3,6 @@ from core.get_jamf.get_jamf import GetJamf
 
 class Computerapplications(GetJamf):
 
-    # TODO block this object from being used without using a search func.
-
     url = '/computerapplications'
 
     def by_application(self, application):
@@ -19,7 +17,7 @@ class Computerapplications(GetJamf):
         self.url = f"{self.url}/application/{application}/version/{version}"
         return self.get_jamf()
 
-    def by_application_version_inventory(self, application, version, inventory):
+    def by_(self, application, version, inventory):
         self.url = f"{self.url}/application/{application}/version/{version}/inventory/{inventory}"
         return self.get_jamf()
 

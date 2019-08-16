@@ -3,8 +3,6 @@ from core.get_jamf.get_jamf import GetJamf
 
 class Computerhistory(GetJamf):
 
-    # TODO block this object from being used without using a search func.
-
     url = '/computerhistory'
 
     def by_id(self, id):

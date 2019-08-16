@@ -5,6 +5,10 @@ class Accounts(GetJamf):
 
     url = '/accounts'
 
+    def base_info(self):
+        self.url = f"{self.url}"
+        return self.get_jamf()
+
     def by_userid(self, id):
         self.url = f"{self.url}/userid/{id}"
         return self.get_jamf()

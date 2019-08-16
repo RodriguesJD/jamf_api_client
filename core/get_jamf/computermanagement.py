@@ -3,8 +3,6 @@ from core.get_jamf.get_jamf import GetJamf
 
 class Computermanagement(GetJamf):
 
-    # TODO block this object from being used without using a search func.
-
     url = '/computermanagement'
 
     def by_id(self, id):
@@ -35,11 +33,11 @@ class Computermanagement(GetJamf):
         self.url = f"{self.url}/id/{id}/username/{username}"
         return self.get_jamf()
 
-    def by_id_username_subset(self, id, username, subset):
+    def by_(self, id, username, subset):
         self.url = f"{self.url}/id/{id}/username/{username}/subset/{subset}"
         return self.get_jamf()
 
-    def by_id_patchfilter(self, id, filter):
+    def by_id_filter(self, id, filter):
         self.url = f"{self.url}/id/{id}/patchfilter/{filter}"
         return self.get_jamf()
 
