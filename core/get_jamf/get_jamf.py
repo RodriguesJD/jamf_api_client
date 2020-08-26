@@ -2,6 +2,7 @@ from requests.auth import HTTPBasicAuth
 import requests
 import os
 
+
 class GetJamf:
 
     key = os.environ["JAMF_KEY"]
