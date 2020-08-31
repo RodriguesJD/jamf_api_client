@@ -14,3 +14,4 @@ jamf_analyzation/retouching
 core/aio_jamf.py
 jamf_analyzation/creative_ruby_versions.csv
 core/config.py
+*.json
