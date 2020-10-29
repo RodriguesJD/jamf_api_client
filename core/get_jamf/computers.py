@@ -1,4 +1,7 @@
-from jamf_api_client.core.get_jamf.get_jamf import GetJamf
+try:
+    from jamf_api_client.core.get_jamf.get_jamf import GetJamf
+except ModuleNotFoundError:
+    from core.get_jamf.get_jamf import GetJamf
 
 
 class Computers(GetJamf):

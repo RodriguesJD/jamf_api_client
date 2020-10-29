@@ -1,8 +1,29 @@
 import os
 import datetime
+import logging
+
+# Create a custom logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+with open(f"{os.getcwd()}/logger_filename_var") as file:
+    log_filename = file.read()
+    file_handler = logging.FileHandler(log_filename)
+
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
 
 
 def data_needs_updating(base_file_name):
+    logger.debug("data_needs_updating")
     filename = []
     for file in os.listdir(os.getcwd()):
         if base_file_name in file:
